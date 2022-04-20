@@ -1,5 +1,6 @@
 package client;
 
+import com.example.messanger.HelloApplication;
 import shared.Message;
 
 import java.io.IOException;
@@ -31,6 +32,7 @@ public class ClientApplication {
     }
 
     public static void main(String[] args) throws IOException {
+        // HelloApplication.main(args);
         Socket socket = new Socket("localhost", 8000);
         writeObjectToOutputStream(socket.getOutputStream());
        // writeStringToOutputStream(socket.getOutputStream());
