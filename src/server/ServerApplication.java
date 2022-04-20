@@ -36,6 +36,8 @@ public class ServerApplication {
         ServerSocket serverSocket = new ServerSocket(8000);
         Socket socket = serverSocket.accept();
         readObjectFromInput(socket.getInputStream());
-     //   readStringFromInput(socket.getInputStream());
+        ServerThread serverThread = new ServerThread();
+        serverThread.setSocket(socket);
+        serverThread.run();
     }
 }

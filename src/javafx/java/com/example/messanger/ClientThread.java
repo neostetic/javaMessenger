@@ -33,13 +33,16 @@ public class ClientThread extends Thread {
     }
 
     public void sendMessage(String msg) {
-        writeStringToOutputStream(msg);
+        try {
+            writeStringToOutputStream(socket.getOutputStream(), msg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void writeStringToOutputStream(OutputStream outputStream) throws IOException {
+    private void writeStringToOutputStream(OutputStream outputStream, String msg) throws IOException {
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
-        outputStreamWriter.write("NEW_USER\n\n");
-        outputStreamWriter.write("data");
+        outputStreamWriter.write(msg);
         outputStreamWriter.flush();
     }
 

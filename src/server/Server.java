@@ -1,4 +1,4 @@
-package client;
+package server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class Server {
         final Scanner sc=new Scanner(System.in);
 
         try {
-            serverSocket = new ServerSocket(5000);
+            serverSocket = new ServerSocket(8000);
             clientSocket = serverSocket.accept();
             out = new PrintWriter(clientSocket.getOutputStream());
             in = new BufferedReader (new InputStreamReader(clientSocket.getInputStream()));
